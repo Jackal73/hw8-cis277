@@ -19,9 +19,9 @@ import data from "./data.js";
   );
 })();
 
-// // TODO: WHAT IS TOTAL MILEAGE OF ALL VEHICLES?
+// TODO: WHAT IS TOTAL MILEAGE OF ALL VEHICLES?
 
-// // Use reduce to get each mileage and add to current total of mileage of each persons vehicle (total/sum, iterator), then we reduce again to get each persons total mileage to add together to get the total mileage of all the vehicles in the array.
+// Use reduce to get each mileage and add to current total of mileage of each persons vehicle (total/sum, iterator), then we reduce again to get each persons total mileage to add together to get the total mileage of all the vehicles in the array.
 (async () => {
   const totalMileage = data.reduce((total, currentPerson) => {
     total += currentPerson.vehicles.reduce((personTotal, currentVehicle) => {
