@@ -39,7 +39,7 @@ import data from "./data.js";
     // Initialize to '0'.
   }, 0);
 
-  fs.writeFile("./total-milage.json", JSON.stringify(totalMileage));
+  await fs.writeFile("./total-milage.json", JSON.stringify(totalMileage));
 })();
 
 // TODO: FILTER YAHOO.COM EMAILS (return just the emails).
@@ -100,15 +100,17 @@ import data from "./data.js";
 
 // Express
 const app = express();
+
 app.get("/:page", (req, res) => {
-  fs.readFile(`${req.params.page}.json`, "utf-8")
-    .then((contents) => {
-      res.json(contents);
-    })
-    .catch(() => {
-      res.statusCode = 404;
-      res.end("404!");
-    });
+  fs.readFile(
+    `${req.params.page}.json`,
+    "utf-8"
+  )((contents) => {
+    res.json(contents);
+  }).catch(() => {
+    res.statusCode = 404;
+    res.end("404!");
+  });
 });
 app.listen(3000, () => {
   console.info("Server running");
